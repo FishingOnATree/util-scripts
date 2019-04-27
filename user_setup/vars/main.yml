@@ -1,0 +1,22 @@
+---
+custom_groups:
+  - name: developers
+    state: present
+    system: no
+    sudo: yes
+  - name: superusers
+    state: present
+    system: no
+    sudo: yes
+
+users:
+  - name: raysung
+    key: "{{ lookup('file', 'raysung.pub') }}"
+    state: present
+    groups: developers
+    shell: /bin/bash
+  - name: rsung
+    key: "{{ lookup('file', 'rsung.pub') }}"
+    state: present
+    groups: developers
+    shell: /bin/bash
